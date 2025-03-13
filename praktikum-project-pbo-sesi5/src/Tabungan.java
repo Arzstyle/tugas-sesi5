@@ -16,7 +16,7 @@ public class Tabungan extends Rekening {
 
     public void hitungBunga(int bulan) {
         double bunga = (bungaTahunan / 12) * saldo * bulan;
-        System.out.println("Bunga setelah " + bulan + " bulan: Rp" + bunga);
+        System.out.println("Bunga setelah " + bulan + " bulan: Rp: " + bunga);
     }
 
     @Override
