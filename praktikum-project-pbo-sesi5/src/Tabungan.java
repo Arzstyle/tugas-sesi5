@@ -25,5 +25,4 @@ public class Tabungan extends Rekening {
         System.out.println("Bunga Tahunan: " + bungaTahunan + "%");
         System.out.println("===========================\n");
     }
-    
 }

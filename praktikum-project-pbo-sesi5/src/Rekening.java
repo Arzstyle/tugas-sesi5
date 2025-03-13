@@ -1,76 +1,49 @@
 public class Rekening {
     protected String namaPemilik;
-    protected String nomorRekening;
+    protected String noRekening;
     protected double saldo;
 
-    public Rekening(String namaPemilik, String nomorRekening, double saldo) {
+    public Rekening(String namaPemilik, String noRekening, double saldo) {
         this.namaPemilik = namaPemilik;
-        this.nomorRekening = nomorRekening;
+        this.noRekening = noRekening;
         this.saldo = saldo;
     }
 
-    public String getNamaPemilik() {
-        return namaPemilik;
-    }
-
-    public void setNamaPemilik(String namaPemilik) {
-        this.namaPemilik = namaPemilik;
-    }
-
-    public String getNomorRekening() {
-        return nomorRekening;
-    }
-
-    public void setNomorRekening(String nomorRekening) {
-        this.nomorRekening = nomorRekening;
-    }
-
-    public double getSaldo() {
-        return saldo;
-    }
-
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
-    }
-
-    // Overloading setor() - Versi 1: Setor tunai biasa
     public void setor(double jumlah) {
-        if (jumlah > 0) {
-            saldo += jumlah;
-            System.out.println("Setoran tunai sebesar Rp" + jumlah + " berhasil.");
-        } else {
-            System.out.println("Jumlah setoran harus lebih dari 0.");
-        }
+        saldo += jumlah;
+        System.out.println("Setoran berhasil! Saldo sekarang: Rp" + saldo);
     }
 
-    // Overloading setor() - Versi 2: Setor melalui transfer
-    public void setor(double jumlah, boolean transfer) {
-        if (jumlah > 0) {
-            saldo += jumlah;
-            if (transfer) {
-                System.out.println("Transfer sebesar Rp" + jumlah + " berhasil.");
+    // Overloading setor() untuk transfer
+    public void setor(double jumlah, boolean dariRekeningLain) {
+        if (dariRekeningLain) {
+            double biayaAdmin = 2500;
+            if (jumlah > biayaAdmin) {
+                saldo += (jumlah - biayaAdmin); 
+                System.out.println("Transfer diterima dari rekening lain!");
+                System.out.println("Biaya admin Rp 2.500 dipotong. Saldo sekarang: Rp" + saldo);
             } else {
-                System.out.println("Setoran tunai sebesar Rp" + jumlah + " berhasil.");
+                System.out.println("Transfer gagal! Jumlah tidak mencukupi setelah dipotong biaya admin.");
             }
         } else {
-            System.out.println("Jumlah setoran harus lebih dari 0.");
+            saldo += jumlah;
+            System.out.println("Transfer berhasil! Saldo sekarang: Rp" + saldo);
         }
     }
 
     public void tarik(double jumlah) {
-        if (jumlah > 0 && saldo >= jumlah) {
+        if (jumlah <= saldo) {
             saldo -= jumlah;
-            System.out.println("Penarikan sebesar Rp" + jumlah + " berhasil.");
+            System.out.println("Penarikan berhasil! Saldo sekarang: Rp" + saldo);
         } else {
-            System.out.println("Saldo tidak mencukupi atau jumlah tidak valid.");
+            System.out.println("Penarikan gagal! Saldo tidak mencukupi.");
         }
     }
 
     public void tampilkanInfo() {
-        System.out.println("\n===========================");
+        System.out.println("\n=== Informasi Rekening ===");
         System.out.println("Nama Pemilik  : " + namaPemilik);
-        System.out.println("No. Rekening  : " + nomorRekening);
-        System.out.println("Saldo Saat Ini: Rp" + saldo);
-        System.out.println("===========================\n");
+        System.out.println("No. Rekening  : " + noRekening);
+        System.out.println("Saldo         : Rp" + saldo);
     }
 }
