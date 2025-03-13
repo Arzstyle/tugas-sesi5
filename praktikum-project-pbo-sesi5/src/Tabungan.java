@@ -1,6 +1,6 @@
 public class Tabungan extends Rekening {
-    double bungaTahunan;
-    
+    private double bungaTahunan;
+
     public Tabungan(String namaPemilik, String nomorRekening, double saldo, double bungaTahunan) {
         super(namaPemilik, nomorRekening, saldo);
         this.bungaTahunan = bungaTahunan;
@@ -14,15 +14,16 @@ public class Tabungan extends Rekening {
         this.bungaTahunan = bungaTahunan;
     }
 
+    public void hitungBunga(int bulan) {
+        double bunga = (bungaTahunan / 12) * saldo * bulan;
+        System.out.println("Bunga setelah " + bulan + " bulan: Rp" + bunga);
+    }
+
     @Override
     public void tampilkanInfo() {
         super.tampilkanInfo();
-        System.out.printf("Bunga Tahunan: %.2f%%%n", this.bungaTahunan);
-        System.out.println("Bunga Tahunan: " + this.bungaTahunan + "%");
+        System.out.println("Bunga Tahunan: " + bungaTahunan + "%");
+        System.out.println("===========================\n");
     }
     
-    public void hitungBunga(int bulan) {
-        this.bungaTahunan = this.bungaTahunan / 12 * getSaldo(0) * bulan;
-    }
 }
-

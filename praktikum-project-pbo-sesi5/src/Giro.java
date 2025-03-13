@@ -1,8 +1,9 @@
 public class Giro extends Rekening {
-    double limitPenarikan;
+    private double limitPenarikan;
 
-    public Giro(String namaPemilik, String nomorRekening, double saldo) {
+    public Giro(String namaPemilik, String nomorRekening, double saldo, double limitPenarikan) {
         super(namaPemilik, nomorRekening, saldo);
+        this.limitPenarikan = limitPenarikan;
     }
 
     public double getLimitPenarikan() {
@@ -13,21 +14,13 @@ public class Giro extends Rekening {
         this.limitPenarikan = limitPenarikan;
     }
 
-    public void Setor(double jumlahSetor) {
-        super.addSetor(jumlahSetor);
-    }
-
-    public void Setor(double jumlahSetor, boolean transfer) {
-        super.addSetor(jumlahSetor);
-        if (transfer == true) {
-            super.addTarik(jumlahSetor);
+    @Override
+    public void tarik(double jumlah) {
+        if (jumlah > 0 && jumlah <= limitPenarikan && saldo >= jumlah) {
+            saldo -= jumlah;
+            System.out.println("Penarikan sebesar Rp" + jumlah + " berhasil.");
+        } else {
+            System.out.println("Penarikan gagal! Melebihi limit atau saldo tidak cukup.");
         }
-    }
- 
-    public double addTarik(double jumlahTarik) {
-        if (jumlahTarik <= this.limitPenarikan) {
-            super.addTarik(jumlahTarik);
-        }
-                return jumlahTarik;
     }
 }

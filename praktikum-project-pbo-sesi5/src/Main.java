@@ -1,25 +1,20 @@
-// import java.util.Scanner;
-
 public class Main {
-
     public static void main(String[] args) {
-
-
+        System.out.println("=====================================");
         System.out.println("Selamat datang di Aplikasi Rekening Tohir");
+        System.out.println("=====================================\n");
 
-        Rekening Tabungan = new Tabungan("Akbar", "123456", 0, 0.5);
-        System.out.println("Setor Tabungan : " + Tabungan.addSetor(200));
-        System.out.println("Tarik Tabungan : " + Tabungan.getSaldo(100));
-        Tabungan.tampilkanInfo();
-        System.out.println("Jenis Rekening : Tabungan");
+        // Membuat rekening tabungan
+        Tabungan tabungan = new Tabungan("Akbar", "123456", 0, 5.0);
+        tabungan.setor(200000);
+        tabungan.tarik(100000);
+        tabungan.tampilkanInfo();
+        tabungan.hitungBunga(6);
 
-        // Rekening Giro = new Giro("Akbar", "123456", 0);
-        // System.out.println("Setor Giro : " + Giro.addSetor(200));  
-        // System.out.println("Tarik Giro : " + Giro.getSaldo(100));
-        // Giro.tampilkanInfo();
-        // System.out.println("Jenis Giro : Giro");
-
-
+        // Membuat rekening giro
+        // Giro giro = new Giro("Akbar", "654321", 0, 500000);
+        // giro.setor(250000, true);
+        // giro.tarik(200000);
+        // giro.tampilkanInfo();
     }
-    
 }
