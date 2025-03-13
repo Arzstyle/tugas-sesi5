@@ -18,7 +18,7 @@ public class Giro extends Rekening {
     public void tarik(double jumlah) {
         if (jumlah > 0 && jumlah <= limitPenarikan && saldo >= jumlah) {
             saldo -= jumlah;
-            System.out.println("Penarikan sebesar Rp" + jumlah + " berhasil.");
+            System.out.println("Penarikan sebesar Rp: " + jumlah + " berhasil.");
         } else {
             System.out.println("Penarikan gagal! Melebihi limit atau saldo tidak cukup.");
         }
