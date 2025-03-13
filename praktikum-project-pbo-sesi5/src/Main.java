@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("=== Selamat Datang di Aplikasi Rekening ===");
+        System.out.println("=== Selamat Datang di Aplikasi Rekening Tohir ===");
 
         System.out.println("Pilih jenis rekening: ");
         System.out.println("1. Tabungan (Pemilik: Akbar)");
@@ -17,17 +17,17 @@ public class Main {
         Rekening rekening;
 
         if (pilihan == 1) {
-            namaPemilik = "Akbar";
-            System.out.print("Masukkan nomor rekening: ");
-            noRek = input.next();
-            System.out.print("Masukkan saldo awal: Rp");
-            double saldo = input.nextDouble();
-            rekening = new Rekening(namaPemilik, noRek, saldo);
-        } else if (pilihan == 2) {
-            namaPemilik = "Sechan Dokoni";
+            namaPemilik = "Andi";
             System.out.print("Masukkan nomor rekening: ");
             noRek = input.next();
             System.out.print("Masukkan saldo awal: Rp: ");
+            double saldo = input.nextDouble();
+            rekening = new Rekening(namaPemilik, noRek, saldo);
+        } else if (pilihan == 2) {
+            namaPemilik = "Budi";
+            System.out.print("Masukkan nomor rekening: ");
+            noRek = input.next();
+            System.out.print("Masukkan saldo awal: Rp");
             double saldo = input.nextDouble();
             rekening = new Rekening(namaPemilik, noRek, saldo);
         } else {
@@ -48,19 +48,19 @@ public class Main {
 
             switch (menu) {
                 case 1:
-                    System.out.print("Masukkan jumlah setoran: Rp");
+                    System.out.print("Masukkan jumlah setoran: Rp: ");
                     double setorTunai = input.nextDouble();
                     rekening.setor(setorTunai);
                     break;
                 case 2:
-                    System.out.print("Masukkan jumlah transfer: Rp");
+                    System.out.print("Masukkan jumlah transfer: Rp: ");
                     double setorTransfer = input.nextDouble();
                     System.out.print("Apakah transfer dari rekening lain? (true/false): ");
                     boolean dariRekLain = input.nextBoolean();
                     rekening.setor(setorTransfer, dariRekLain);
                     break;
                 case 3:
-                    System.out.print("Masukkan jumlah penarikan: Rp");
+                    System.out.print("Masukkan jumlah penarikan: Rp: ");
                     double tarik = input.nextDouble();
                     rekening.tarik(tarik);
                     break;
