@@ -17,14 +17,14 @@ public class Main {
         Rekening rekening;
 
         if (pilihan == 1) {
-            namaPemilik = "Andi";
+            namaPemilik = "Akbar";
             System.out.print("Masukkan nomor rekening: ");
             noRek = input.next();
             System.out.print("Masukkan saldo awal: Rp: ");
             double saldo = input.nextDouble();
             rekening = new Rekening(namaPemilik, noRek, saldo);
         } else if (pilihan == 2) {
-            namaPemilik = "Budi";
+            namaPemilik = "Hawa";
             System.out.print("Masukkan nomor rekening: ");
             noRek = input.next();
             System.out.print("Masukkan saldo awal: Rp: ");
